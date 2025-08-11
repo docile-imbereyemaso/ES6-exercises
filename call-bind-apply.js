@@ -23,4 +23,30 @@ function capitalize(){
 const name ="john";
 
 const capitalizeLetter = capitalize.call(name);
-console.log(capitalizeLetter)
+// console.log(capitalizeLetter);
+
+// function that calculates the discounted price of products with fixed percentage
+
+function calculateDiscount(){
+
+    return `$${Math.round(this.initialPrice *10/100)}`;
+
+}
+
+const price ={initialPrice:50};
+
+const discountedPrice = calculateDiscount.bind(price);
+// console.log(discountedPrice())
+
+//convert array-like-object into regular array
+
+function convertArrayLikeObject(arrayLike){
+
+    return Array.prototype.slice.apply(arrayLike)
+}
+const arrayLikeObject = { 0: 'a', 1: 'b', 2: 'c', length: 3 };
+console.log(arrayLikeObject)
+const result = convertArrayLikeObject(arrayLikeObject);
+
+
+console.log(result)
